@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="config_tree" model="ir.ui.view">
+      <field name="name">buy2sell.config.tree</field>
+      <field name="model">buy2sell.config</field>
+      <field name="priority">2</field>
+      <field name="arch" type="xml">
+        <tree string="Configuration For Invoice Creation">
+          <field name="name" />
+          <field name="host" />
+        </tree>
+      </field>
+    </record>
+    <record id="config_form" model="ir.ui.view">
+      <field name="name">buy2sell.config.form</field>
+      <field name="model">buy2sell.config</field>
+      <field name="priority">2</field>
+      <field name="arch" type="xml">
+        <form string="Configuration For Invoice Creation" version="7.0">
+          <header>
+            <button name="action_test_conn" type="object" string="Test and confirm"
+                    class="oe_highlight" /> 
+            <field name="state" widget="statusbar" />
+         </header>
+          <sheet string="Purchase to Sale Configuration">
+            <div class="oe_title">
+              <h1>
+                <field name="name" />
+              </h1>
+            </div>
+            <group>
+                <field name="host" />
+                <field name="username" />
+                <field name="password" />
+                <field name="database" />
+                <field name="default" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="action_config_tree" model="ir.actions.act_window">
+      <field name="name">Purchase To Sale</field>
+      <field name="res_model">buy2sell.config</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Click to create a purchase to sale order configuration.
+        </p><p>
+          This configuration allows connect two Odoo databases in order
+          to create automatic sale orders for purchases.
+        </p>
+      </field>
+    </record>
+    <menuitem action="action_config_tree" id="menu_buy2sell_config_tree" parent="base.menu_config"/>
+  </data>
+</openerp>
+
+ 
