@@ -33,7 +33,7 @@ class enrollment_sale(osv.Model):
     _description = "Enrollment"
 
     _columns = {
-        'name':fields.char('Name', 50),
+        'name':fields.char('Name', 50, required=True, readonly=True),
         'student_id':fields.many2one('ac.student', 'Student', required=True),
         'partner_id':fields.many2one('res.partner', 'Partner'),
  #       'op_standard_id':fields.many2one('op.standard', 'Standard', required=True),
@@ -63,6 +63,9 @@ class enrollment_sale(osv.Model):
     }
 
     _defaults = {
+        'name': lambda obj, cr, uid, context: obj.pool.get('ir.sequence').get(cr, uid, 'ac.enrollment'),
+        'enrollment_date': fields.date.today(),
+        'enrollment_time': 'ordinary',
         'state':'draft',
     }
 
@@ -114,6 +117,7 @@ class enrollment_sale_line(osv.Model):
             ('second', 'Second Registration'),
             ('third', 'Third Registration')],
             help='Number of repeated registrations'),
+        'additional_price':fields.float('Additional Price'),
         'amount':fields.function(_get_amount, method=True, store=False,
             fnct_inv=None, fnct_search=None, string='Amount', type='float'),
     }

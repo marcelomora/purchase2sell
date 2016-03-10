@@ -34,6 +34,7 @@ Management of enrollment for student at an educational institute.
         'base', 'sale',
     ],
     'data': [
+        'data/ac_enrollment_sequence.xml',
         'op_course/op_course_view.xml',
         'op_standard/op_standard_view.xml',
         'op_batch/op_batch_view.xml',

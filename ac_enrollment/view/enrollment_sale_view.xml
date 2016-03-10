@@ -64,6 +64,8 @@
                     <field name="credits" /> 
                     <field name="enrollment_price" />
                     <field name="tariff_price" />
+                    <field name="repeat_registration" />
+                    <field name="additional_price" />
                     <field name="amount" />
                   </tree>
                 </field>
