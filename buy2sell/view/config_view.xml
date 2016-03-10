@@ -34,7 +34,7 @@
                 <field name="username" />
                 <field name="password" />
                 <field name="database" />
-                <field name="default" />
+                <field name="supplier_id" />
             </group>
             <group string="External Customer">
               <field name="customer_external_id"/>

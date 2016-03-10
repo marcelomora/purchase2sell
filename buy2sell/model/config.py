@@ -24,7 +24,9 @@ class buy2sell_config(osv.osv):
             help='Username for sale order creation'),
         'password':fields.char('Password', 255, help='Password', required=True),
         'database':fields.char('Database', 255, help='Database', required=True),
-        'default':fields.boolean('Default', help='Default configuration'),
+        'supplier_id':fields.many2one('res.partner', 'Supplier',
+            help='Provider', required=True, domain=[('supplier', '=', True)]),
+
         'state':fields.selection([('draft', 'Draft'),
                                   ('confirmed', 'Confirmed')],
             string='State', help='State'),
