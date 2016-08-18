@@ -37,22 +37,24 @@
 							<field name="payment_term" />
 						</group>
             -->
-						<group string="Subjects">
-							<field name="subject_ids" nolabel="1">
-                <form>
-                  <group>
-                    <group>
-                      <field name="name" />
-                      <field name="code" />
-                      <field name="type" />
-                    </group>
-                    <group>
-                      <field name="credits" />
-                    </group>
-                  </group>
-                </form>
-              </field>
-						</group>
+			            <notebook>
+							<page string="Subjects">
+								<field name="subject_ids" nolabel="1">
+					                <form>
+					                  <group>
+					                    <group>
+					                      <field name="name" />
+					                      <field name="code" />
+					                      <field name="type" />
+					                    </group>
+					                    <group>
+					                      <field name="credits" />
+					                    </group>
+					                  </group>
+					                </form>
+					            </field>
+							</page>
+						</notebook>
 					</sheet>
 				</form>
 			</field>

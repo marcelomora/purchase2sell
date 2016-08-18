@@ -76,6 +76,9 @@ class enrollment_sale(osv.Model):
         for enrollment in self.browse(cr, uid, ids, context=context):
             defaults = sale_order_obj.onchange_partner_id(cr, uid, [],
                     enrollment.partner_id.id , context=context)['value']
+
+            enrollment_ref = self.pool.get('ir.model.data').
+                get_object_reference(cr, uid, 'product', 'view_order_form')
             defaults['partner_id'] = enrollment.partner_id.id
             customer = enrollment.partner_id
             sale_order_obj.create(cr, uid, defaults)
